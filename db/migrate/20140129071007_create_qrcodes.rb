@@ -7,7 +7,7 @@ class CreateQrcodes < ActiveRecord::Migration
       t.string :jobtitle
       t.string :email
       t.string :url
-      t.string :phone
+      t.string :mobilephone
       t.string :officephone
       t.string :language
 

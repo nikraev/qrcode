@@ -1,29 +1,39 @@
-<%= form_tag("search", method: "get") do %>
-  
-    <%= label_tag(:lastname, "Фамилия:") %>
-    <%= text_field_tag(:lastname) %>
-    <br>
-    <%= label_tag(:firstname,"Имя") %>
-    <%= text_field_tag(:firstname) %>
-    <br>
-    <%= label_tag(:organization,"Организация") %>
-    <%= text_field_tag(:firstname, "DataLine") %>
-    <br>
-    <%= label_tag(:jobtitle,"Должность") %>
-    <%= text_field_tag(:jobtitle) %>
-    <br>
-    <%= label_tag(:email,"E-mail") %>
-    <%= text_field_tag(:email ) %>
-    <br>
-    <%= label_tag(:url,"URL") %>
-    <%= text_field_tag(:url,"www.dtln.ru") %>
-    <br>
-    <%= label_tag(:phone,"Мобильный телефон") %>
-    <%= text_field_tag(:phone) %>
-    <br>
-    <%= label_tag(:officephone,"Рабочий телефон") %>
-    <%= text_field_tag(:officephone,) %>
-    <br>
+<%= form_for :post, url: qrcodes_path do |f| %>
+  <p>
+    <%= f.label "Фамилия: " %>
+    <%= f.text_field :lastname %>
+ </p>
+       
+  <p>
+    <%= f.label "Имя " %>
+    <%= f.text_field :firstname %>
+  </p>
 
-    <%= submit_tag("Search") %>
+  <p>
+    <%= f.label "Организация " %>
+    <%= f.text_field :organization %>
+ </p>
+  <p>
+    <%= f.label "Должность " %>
+    <%= f.text_field :jobtitle %>
+ </p>
+  <p>
+    <%= f.label "E-mail: " %>
+    <%= f.text_field :email %>
+ </p>
+  <p>
+  <%= f.label "URL: "%>
+    <%= f.text_field :url %>
+ </p>
+  <p>
+    <%= f.label "Мобильный телефон: " %>
+    <%= f.text_field :phone %>    
+ </p>
+    <%= f.label "Рабочий телефон: " %>
+    <%= f.text_field :officephone %>
+ </p>
+                 
+ <p>
+  <%= f.submit %>
+ </p>
 <% end %>
