@@ -1,7 +1,4 @@
 class QrcodesController < ApplicationController
-  def initialize
-  end
-  
   def index
     @codes = Qrcode.all
   end
@@ -10,16 +7,16 @@ class QrcodesController < ApplicationController
   end
 
   def create
-    @post = Qrcode.new(post_params)
-    @post.save
-    redirect_to @post
+    @qrcode = Qrcode.new(qrdata_params)
+    @qrcode.save
   end
 
   def show
+    @qrcode = Qrcode.find(params[:id])
   end
 
  private
-  def post_params
-      params.require(:post).permit(:lastname,:firstname,:organization,:jobtitle,:email,:url,:phone,:officephone)
+  def qrdata_params
+      params.require(:qrdata).permit(:lastname,:firstname,:organization,:jobtitle,:email,:url,:phone,:officephone)
   end
 end

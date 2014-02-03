@@ -1,39 +1,64 @@
-<%= form_for :post, url: qrcodes_path do |f| %>
+<%= form_for :qrdata, url: qrcodes_path do |qr| %>
   <p>
-    <%= f.label "Фамилия: " %>
-    <%= f.text_field :lastname %>
+    <%= qr.label "Фамилия: " %>
+    <%= qr.text_field :lastname %>
  </p>
        
   <p>
-    <%= f.label "Имя " %>
-    <%= f.text_field :firstname %>
+    <%= qr.label "Имя " %>
+    <%= qr.text_field :firstname %>
   </p>
 
   <p>
-    <%= f.label "Организация " %>
-    <%= f.text_field :organization %>
+    <%= qr.label "Организация " %>
+    <%= qr.text_field :organization %>
  </p>
   <p>
-    <%= f.label "Должность " %>
-    <%= f.text_field :jobtitle %>
+    <%= qr.label "Должность " %>
+    <%= qr.text_field :jobtitle %>
  </p>
   <p>
-    <%= f.label "E-mail: " %>
-    <%= f.text_field :email %>
+    <%= qr.label "E-mail: " %>
+    <%= qr.text_field :email %>
  </p>
   <p>
-  <%= f.label "URL: "%>
-    <%= f.text_field :url %>
+  <%=   qr.label "URL: "%>
+    <%= qr.text_field :url %>
  </p>
   <p>
-    <%= f.label "Мобильный телефон: " %>
-    <%= f.text_field :phone %>    
+    <%= qr.label "Мобильный телефон: " %>
+    <%= qr.text_field :phone %>    
  </p>
-    <%= f.label "Рабочий телефон: " %>
-    <%= f.text_field :officephone %>
+    <%= qr.label "Рабочий телефон: " %>
+    <%= qr.text_field :officephone %>
  </p>
                  
  <p>
-  <%= f.submit %>
+  <%= qr.submit %>
  </p>
 <% end %>
+
+  <table border="1">
+  <tr>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Организация</th>
+    <th>Должность</th>
+    <th>E-mail</th>
+    <th>URL</th>
+    <th>Мобильный телефон</th>
+    <th>Рабочий телефон</th>
+  </tr>
+  <% @codes.each do |qr|  %>
+  <tr>
+    <td><%= qr.lastname %></td>
+    <td><%= qr.firstname %></td>
+    <td><%= qr.organization %></td>
+    <td><%= qr.jobtitle %></td>
+    <td><%= qr.email %></td>
+    <td><%= qr.url %></td>
+    <td><%= qr.phone %></td>
+    <td><%= qr.officephone %></td>
+  </tr>
+<% end %>
+</table>
